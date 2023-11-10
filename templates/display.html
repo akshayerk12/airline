@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fly High - Airline Recommendations</title>
+    <link rel="icon" href="{% static 'logo2.png' %}">
+    <style>
+        body {
+            background-color: rgb(131, 221, 233);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        h1 {
+            margin: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+        .airline {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 20px;
+        }
+        h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        p {
+            font-size: 16px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hi.., We found these airlines based on your requirements</h1>
+    </header>
+
+    <div class="container">
+        {% for airline, desc in result.items %}
+        <div class="airline">
+            <h2>{{ airline }}</h2>
+            <p>{{ desc.0 }}</p>
+            <br>
+            <h2>Estimated price</h2>
+            <p>{{ desc.1 }}</p>
+
+
+
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
