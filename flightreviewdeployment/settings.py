@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+u$i7ob)i8n1)19tp-x1zdan4sz=geqwxdcaad2nk4cmfu2ae8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -85,7 +86,8 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-DATABASES["default"]=dj_database_url.parse('postgres://airline_django_render_user:kuM1y5ImnSRZX7ryp4h5Fke9PtiFcwyC@dpg-cl6v542uuipc73f4bnkg-a.oregon-postgres.render.com/airline_django_render')
+# database_url=os.environ.get("DATABASE_URL")
+# DATABASES["default"]=dj_database_url.parse(database_url)
 
 
 
